@@ -70,6 +70,8 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
 })
 export class NgISPUINotificationGroupComponent implements OnInit {
   /** время жизни нотификации */
+  public transitionHeight = 0;
+  /** время жизни нотификации */
   public hideTimeout = 10000;
   /** список нотификаций */
   public notificationList: INotifyBanner[] = [];
@@ -148,7 +150,7 @@ export class NgISPUINotificationGroupComponent implements OnInit {
    */
   _checkBuffer(): void {
     if (this._notificationListBuffer.length) {
-      this._notificationListBuffer.forEach(this._moveBannerToList);
+      this._notificationListBuffer.forEach(this._moveBannerToList.bind(this));
     }
   }
 
@@ -174,7 +176,7 @@ export class NgISPUINotificationGroupComponent implements OnInit {
       this.notificationList.splice(index, 1);
     }
     this._changeDetectorRef.markForCheck();
-    this._checkBuffer();
+    // this._checkBuffer();
     return index !== -1;
   }
 

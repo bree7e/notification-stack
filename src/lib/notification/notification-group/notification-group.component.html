@@ -3,7 +3,7 @@
      *ngFor="let notify of notificationList; trackBy: trackByFn"
      [linkType]="notify.linkType"
      [@itemAnim]
-     (@itemAnim.done)="animationDone($event)"
+     (@itemAnim.done)="_checkBuffer()"
      [id]="notify.id"
      [title]="notify.title"
      [time]="notify.time"
