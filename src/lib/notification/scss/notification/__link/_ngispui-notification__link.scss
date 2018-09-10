@@ -1,0 +1,14 @@
+@import "link/_link";
+
+.ngispui-notification__link {
+  @extend %link;
+  @extend %link_color_primary;
+
+  display: block;
+  margin-top: 12px;
+}
+
+@import "_default/_ngispui-notification__link_default";
+@import "_default-hover/_ngispui-notification__link_default-hover";
+@import "_dropdown/_ngispui-notification__link_dropdown";
+@import "_dropdown-hover/_ngispui-notification__link_dropdown-hover";

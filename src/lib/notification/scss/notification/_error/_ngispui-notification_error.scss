@@ -1,0 +1,8 @@
+.ngispui-notification_error {
+  &::before {
+    width: 16px;
+    height: 14px;
+    background-image: url('../../assets/icons/notification_error.svg');
+    background-repeat: no-repeat;
+  }
+}

@@ -1,0 +1,43 @@
+@import "link/_link";
+
+.ngispui-notification {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 310px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  padding-top: 17px;
+  padding-right: 21px;
+  padding-bottom: 17px;
+  padding-left: 42px;
+
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    
+  &::before {
+    content: '';
+    position: absolute;
+    top: 19px;
+    left: 20px;
+    display: block;
+  }
+
+  &:hover &__close {
+    display: block;
+  }
+}
+
+@import "_error/_ngispui-notification_error";
+@import "_normal/_ngispui-notification_normal";
+@import "_rest/_ngispui-notification_rest";
+
+@import "__content/_ngispui-notification__content";
+@import "__title/_ngispui-notification__title";
+@import "__link/_ngispui-notification__link";
+@import "__time/_ngispui-notification__time";
+@import "__close/_ngispui-notification__close";
+@import "_wrap-link/_ngispui-notification_wrap-link";
+@import "_is-list/_ngispui-notification_is-list";

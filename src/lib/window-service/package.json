@@ -1,0 +1,19 @@
+{
+  "name": "@ngispui/window-service",
+  "version": "1.0.0",
+  "description": "ISPsystem UI Kit for Angular Window Service",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab-dev.ispsystem.net:frontend/common/ng-isp-ui.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/core": "^6.0.9",
+    "@angular/common": "^6.0.9"
+  }
+}

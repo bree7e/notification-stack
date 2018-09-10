@@ -1,0 +1,21 @@
+%checkbox {
+  cursor: pointer;
+
+  &::before {
+    display: inline-block;
+
+    width: 15px;
+    height: 15px;
+    margin: -1px 9px 0 0;
+
+    content: '';
+
+    vertical-align: middle;
+
+    border: var(--ngispui-checkbox__border, 1px solid #d9d9d9);
+    border-radius: 3px;
+    background-color: var(--ngispui-checkbox__background, #ffffff);
+  }
+}
+
+@import './_is/_checkbox_is_checked';

@@ -1,0 +1,14 @@
+%link_type_disabled {
+  cursor: not-allowed;
+  
+  color: var(--isp-link__color_inactive, #d9d9d9);
+
+  &::before {
+    background-color: var(--isp-link__color_inactive, #d9d9d9);
+  }
+
+  &::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+  } 
+}

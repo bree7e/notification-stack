@@ -1,0 +1,8 @@
+.ngispui-notification_rest { 
+  &::before {
+    width: 15px;
+    height: 12px;
+    background-image: url('../../assets/icons/notification_rest.svg');
+    background-repeat: no-repeat;
+  }
+}

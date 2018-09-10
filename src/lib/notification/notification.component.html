@@ -1,0 +1,10 @@
+<button class="ngispui-notification__close" (click)="onCloseHandler()"></button>
+<p class="ngispui-notification__title">{{ title }}</p>
+<p class="ngispui-notification__time" *ngIf="isList">{{ time }}</p>
+<p class="ngispui-notification__content">{{ content }}</p>
+<span 
+    *ngIf="isLink" 
+    [ngClass]="linkClasses"
+    (click)="onLinkClick($event)">
+  {{ link }}
+</span>

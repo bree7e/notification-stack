@@ -1,0 +1,13 @@
+%link_color_additional { 
+  color: var(--isp-color__additional-text, #9b9b9b);
+
+  &::before {
+    background-color: var(--isp-color__additional-text, #9b9b9b);
+  }
+
+  &::after {
+    border-color: var(--isp-color__additional-text, #9b9b9b);
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+}

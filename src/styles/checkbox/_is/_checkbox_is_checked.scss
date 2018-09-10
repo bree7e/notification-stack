@@ -1,0 +1,9 @@
+%checkbox_is_checked {
+  &::before {
+    border: var(--ngispui-checkbox__border__checked, 1px solid #4DABE9);
+    background-color: var(--ngispui-checkbox__background__checked, #ffffff);
+    background-image: var(--ngispui-checkbox__icon__check, url('../../../checkbox/assets/icons/check-icon.svg'));
+    background-repeat: no-repeat;
+    background-position: 1px -1px;
+  }
+}

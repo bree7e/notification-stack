@@ -1,0 +1,25 @@
+%link {
+  font-family: var(--isp-font-family, Ubuntu);
+  font-size: var(--isp-link-size, var(--isp-font-size-default, 14px));
+  cursor: pointer;
+}
+
+@import "_type/_link_type_default";
+@import "_type/_link_type_default-hover";
+@import "_type/_link_type_dropdown";
+@import "_type/_link_type_dropdown-hover";
+@import "_type/_link_type_modal";
+@import "_type/_link_type_modal-underline";
+@import "_type/_link_type_modal-hover";
+@import "_type/_link_type_disabled";
+
+@import "_color/_link_color_primary";
+@import "_color/_link_color_additional";
+
+@import "_size/_link_size_micro";
+@import "_size/_link_size_small";
+@import "_size/_link_size_regular";
+@import "_size/_link_size_main";
+@import "_size/_link_size_medium";
+@import "_size/_link_size_big";
+@import "_size/_link_size_bigger";

@@ -1,0 +1,19 @@
+<div class="ngispui-notification-group">
+  <ngispui-notification
+     *ngFor="let notify of notificationList; trackBy: trackByFn"
+     [linkType]="notify.linkType"
+     [@itemAnim]
+     [id]="notify.id"
+     [title]="notify.title"
+     [time]="notify.time"
+     [content]="notify.content"
+     (mouseenter) ="clearBannerTimer(notify)"  
+     (mouseleave) ="setBannerTimer(notify)"
+     (onClose)="onCloseHandler($event)"
+     (onClick)="onClickHandler($event)"
+     (linkClick)="onLinkClickHandler($event)"
+     [type]="notify.type"
+     [link]="notify.link">
+  </ngispui-notification>
+</div>
+

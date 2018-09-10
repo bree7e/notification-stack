@@ -1,0 +1,19 @@
+{
+  "name": "@ngispui/dom-outlet",
+  "version": "1.0.0",
+  "description": "ISPsystem UI Kit for Agular DOMOutletService",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab-dev.ispsystem.net:frontend/common/ng-isp-ui.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^6.0.9",
+   "@angular/core": "^6.0.9"
+  }
+}
