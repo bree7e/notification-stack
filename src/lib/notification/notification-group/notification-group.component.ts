@@ -3,13 +3,13 @@ import {
   group,
   style,
   transition,
-  trigger,
+  trigger
 } from '@angular/animations';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  OnInit,
+  OnInit
 } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
@@ -31,7 +31,7 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
           opacity: 0,
           height: 0,
           margin: 0,
-          padding: 0,
+          padding: 0
         }),
         group([
           animate(
@@ -39,38 +39,38 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
             style({
               height: '*',
               margin: '*',
-              padding: '*',
-            }),
+              padding: '*'
+            })
           ),
           animate(
             '500ms cubic-bezier(.8,-0.6,0.2,1.5)', // отскок
-            style({ transform: 'translateX(0)', opacity: 1 }),
-          ),
-        ]),
+            style({ transform: 'translateX(0)', opacity: 1 })
+          )
+        ])
       ]),
       transition(':leave', [
         animate(
           '250ms ease-out',
           style({
             transform: 'translateX(100%)',
-            opacity: 0,
-          }),
+            opacity: 0
+          })
         ),
         animate(
           '250ms ease-out',
           style({
             height: 0,
             margin: 0,
-            padding: 0,
-          }),
-        ),
-      ]),
-    ]),
-  ],
+            padding: 0
+          })
+        )
+      ])
+    ])
+  ]
 })
 export class NgISPUINotificationGroupComponent implements OnInit {
-  /** время жизни нотицикации */
-  public hideTimeout = 5000;
+  /** время жизни нотификации */
+  public hideTimeout = 10000;
   /** список нотификаций */
   public notificationList: INotifyBanner[] = [];
   /** буфер для пушей, до инициализации компонента */
@@ -82,7 +82,7 @@ export class NgISPUINotificationGroupComponent implements OnInit {
   /** максимальное количество отображаемых баннеров */
   readonly MAX_NOTIFY_SHOW_COUNT = 5;
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.initComponent = true;
@@ -129,7 +129,10 @@ export class NgISPUINotificationGroupComponent implements OnInit {
    * @param banner - объект баннера
    */
   push(banner: INotifyBanner): Observable<INotifyEvent> {
-    if (this.initComponent && this.notificationList.length < this.MAX_NOTIFY_SHOW_COUNT) {
+    if (
+      this.initComponent &&
+      this.notificationList.length < this.MAX_NOTIFY_SHOW_COUNT
+    ) {
       this._addBanner(banner);
     } else {
       this._notificationListBuffer.push(banner);
@@ -145,12 +148,19 @@ export class NgISPUINotificationGroupComponent implements OnInit {
    */
   _checkBuffer(): void {
     if (this._notificationListBuffer.length) {
-      this._notificationListBuffer.forEach((b, index) => {
-        if (this.notificationList.length < this.MAX_NOTIFY_SHOW_COUNT) {
-          this._addBanner(b);
-          this._notificationListBuffer.splice(index, 1);
-        }
-      });
+      this._notificationListBuffer.forEach(this._moveBannerToList);
+    }
+  }
+
+  /**
+   * Добавить нотификации в шаблон
+   * @param b - нотификация
+   * @param index - номер
+   */
+  private _moveBannerToList(b: INotifyBanner, index: number): void {
+    if (this.notificationList.length < this.MAX_NOTIFY_SHOW_COUNT) {
+      this._addBanner(b);
+      this._notificationListBuffer.splice(index, 1);
     }
   }
 
