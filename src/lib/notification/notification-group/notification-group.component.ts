@@ -217,4 +217,9 @@ export class NgISPUINotificationGroupComponent implements OnInit {
   public clearBannerTimer(banner: INotifyBanner): void {
     clearTimeout(banner.timer);
   }
+
+
+  animationDone(event) {
+    console.log('End', event);
+  }
 }
