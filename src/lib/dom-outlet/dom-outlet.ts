@@ -3,8 +3,6 @@ import {
     ComponentFactoryResolver,
     ComponentRef,
     EmbeddedViewRef,
-    Inject,
-    Injectable,
     Injector } from '@angular/core';
 
 /**

@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Inject, Injector, OnDestroy } from '@angular/core';
+import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Inject, Injector, OnDestroy, Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,9 @@ import { NgISPUINotificationGroupComponent } from './notification-group/notifica
 import { INotifyBanner, INotifyEvent } from './notification.interface';
 import { DOMOutletContainer, DOMOutlet } from 'src/lib/dom-outlet';
 
-
+@Injectable({
+    providedIn: 'root'
+})
 export class NgISPUINotificationService implements OnDestroy {
   /** таймаут скрытия нотификации */
   private _hideTimeout = 5000;

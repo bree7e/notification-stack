@@ -1,6 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable, InjectionToken, OnDestroy, Optional, SkipSelf } from '@angular/core';
-
+import { Inject, InjectionToken, OnDestroy, Optional, SkipSelf } from '@angular/core';
 
 export class DOMOutletContainer implements OnDestroy {
   private _containerElement: HTMLElement;
@@ -13,7 +12,6 @@ export class DOMOutletContainer implements OnDestroy {
     }
   }
 
-
   /**
    * Получить html элемент контейнера
    */
@@ -21,7 +19,6 @@ export class DOMOutletContainer implements OnDestroy {
     if (!this._containerElement) { this._createContainer(); }
     return this._containerElement;
   }
-
 
   /**
    * Создать контейнер для для вствки компонентов
@@ -34,8 +31,6 @@ export class DOMOutletContainer implements OnDestroy {
     this._containerElement = container;
   }
 }
-
-
 
 /** @docs-private @deprecated @deletion-target 7.0.0 */
 export function DOMOUTLETCONTAINER_PROVIDER_FACTORY(parentContainer: DOMOutletContainer,

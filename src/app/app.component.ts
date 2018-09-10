@@ -61,4 +61,12 @@ export class AppComponent {
   ) {
     return this._notificationService.push({ title, content, type });
   }
+
+  onClickFast(type: 'normal-fast' | 'error-fast' | 'rest-fast') {
+    this._notificationService.push({
+      title: 'New',
+      content: new Date().getTime().toString(),
+      type,
+    });
+  }
 }
