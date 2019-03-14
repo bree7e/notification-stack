@@ -5,14 +5,9 @@ import { AppComponent } from './app.component';
 import { NgISPUINotificationModule } from 'src/lib/notification';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgISPUINotificationModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, NgISPUINotificationModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

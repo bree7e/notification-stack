@@ -4,7 +4,7 @@ import { NgISPUINotificationService, TNotifyEvent } from 'src/lib/notification';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'animo';
@@ -40,15 +40,11 @@ export class AppComponent {
             this.clickNormalFast(
               'normal-fast',
               'Клик по уведомлению',
-              'Произошел клик по уведомлению',
+              'Произошел клик по уведомлению'
             );
             break;
           case 'link-click':
-            this.clickNormalFast(
-              'normal-fast',
-              'Клик по ссылке',
-              'Произошел клик по ссылке',
-            );
+            this.clickNormalFast('normal-fast', 'Клик по ссылке', 'Произошел клик по ссылке');
             break;
         }
       });
@@ -57,7 +53,7 @@ export class AppComponent {
   clickNormalFast(
     type: 'normal-fast' | 'error-fast' | 'rest-fast',
     title: string,
-    content: string,
+    content: string
   ) {
     return this._notificationService.push({ title, content, type });
   }

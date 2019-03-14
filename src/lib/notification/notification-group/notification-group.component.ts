@@ -1,16 +1,5 @@
-import {
-  animate,
-  group,
-  style,
-  transition,
-  trigger
-} from '@angular/animations';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit
-} from '@angular/core';
+import { animate, group, style, transition, trigger } from '@angular/animations';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -31,7 +20,7 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
           opacity: 0,
           height: 0,
           margin: 0,
-          padding: 0
+          padding: 0,
         }),
         group([
           animate(
@@ -39,21 +28,21 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
             style({
               height: '*',
               margin: '*',
-              padding: '*'
+              padding: '*',
             })
           ),
           animate(
             '500ms cubic-bezier(.8,-0.6,0.2,1.5)', // отскок
             style({ transform: 'translateX(0)', opacity: 1 })
-          )
-        ])
+          ),
+        ]),
       ]),
       transition(':leave', [
         animate(
           '250ms ease-out',
           style({
             transform: 'translateX(100%)',
-            opacity: 0
+            opacity: 0,
           })
         ),
         animate(
@@ -61,12 +50,12 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
           style({
             height: 0,
             margin: 0,
-            padding: 0
+            padding: 0,
           })
-        )
-      ])
-    ])
-  ]
+        ),
+      ]),
+    ]),
+  ],
 })
 export class NgISPUINotificationGroupComponent implements OnInit {
   /** время жизни нотификации */
@@ -131,18 +120,13 @@ export class NgISPUINotificationGroupComponent implements OnInit {
    * @param banner - объект баннера
    */
   push(banner: INotifyBanner): Observable<INotifyEvent> {
-    if (
-      this.initComponent &&
-      this.notificationList.length < this.MAX_NOTIFY_SHOW_COUNT
-    ) {
+    if (this.initComponent && this.notificationList.length < this.MAX_NOTIFY_SHOW_COUNT) {
       this._addBanner(banner);
     } else {
       this._notificationListBuffer.push(banner);
     }
     // @TODO подумать об этом
-    return this._eventEmitter
-      .asObservable()
-      .pipe(filter(d => d.id === banner.id));
+    return this._eventEmitter.asObservable().pipe(filter(d => d.id === banner.id));
   }
 
   /**
@@ -219,7 +203,6 @@ export class NgISPUINotificationGroupComponent implements OnInit {
   public clearBannerTimer(banner: INotifyBanner): void {
     clearTimeout(banner.timer);
   }
-
 
   animationDone(event) {
     console.log('End', event);

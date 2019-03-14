@@ -4,15 +4,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgISPUINotificationComponent } from './notification.component';
 
-
 @NgModule({
-  declarations: [ NgISPUINotificationComponent ],
-  imports: [ CommonModule ],
-  exports: [ NgISPUINotificationComponent ],
+  declarations: [NgISPUINotificationComponent],
+  imports: [CommonModule],
+  exports: [NgISPUINotificationComponent],
   providers: [],
 })
 class NgISPUINotificationModule {}
-
 
 describe('NgISPUINotificationComponent', () => {
   /*** Host component */
@@ -20,15 +18,17 @@ describe('NgISPUINotificationComponent', () => {
     selector: 'host-component',
     template: `
       <ngispui-notification
-          [id]="id"
-          [title]="title"
-          [time]="time"
-          [content]="content"
-          [type]="type"
-          [link]="link"
-          (onClose)="onCloseHandler($event)"
-          (onClick)="onClickHandler($event)">
-      </ngispui-notification>`,
+        [id]="id"
+        [title]="title"
+        [time]="time"
+        [content]="content"
+        [type]="type"
+        [link]="link"
+        (onClose)="onCloseHandler($event)"
+        (onClick)="onClickHandler($event)"
+      >
+      </ngispui-notification>
+    `,
   })
   class TestHostComponent {
     @ViewChild(NgISPUINotificationComponent) notification: NgISPUINotificationComponent;
@@ -55,14 +55,9 @@ describe('NgISPUINotificationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TestHostComponent,
-      ],
-      imports: [
-        NgISPUINotificationModule,
-      ],
-    })
-    .compileComponents();
+      declarations: [TestHostComponent],
+      imports: [NgISPUINotificationModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
     testHostComponent = fixture.componentInstance;
@@ -76,17 +71,23 @@ describe('NgISPUINotificationComponent', () => {
   });
 
   it('должен создать ngispui-notification__title', () => {
-    const notificationTitleElement = fixture.nativeElement.querySelector('.ngispui-notification__title');
+    const notificationTitleElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__title'
+    );
     expect(notificationTitleElement).toBeTruthy();
   });
 
   it('ngispui-notification__title должен содержимое передаваемое значение', () => {
-    const notificationTitleElement = fixture.nativeElement.querySelector('.ngispui-notification__title');
+    const notificationTitleElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__title'
+    );
     expect(notificationTitleElement.textContent).toContain(testHostComponent.title);
   });
 
   it('должен менять содержимое ngispui-notification__title', () => {
-    const notificationTitleElement = fixture.nativeElement.querySelector('.ngispui-notification__title');
+    const notificationTitleElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__title'
+    );
     expect(notificationTitleElement.textContent).toContain(testHostComponent.title);
 
     testHostComponent.title = 'Новые название уведомления';
@@ -95,17 +96,23 @@ describe('NgISPUINotificationComponent', () => {
   });
 
   it('должен создать ngispui-notification__content', () => {
-    const notificationContentElement = fixture.nativeElement.querySelector('.ngispui-notification__content');
+    const notificationContentElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__content'
+    );
     expect(notificationContentElement).toBeTruthy();
   });
 
   it('ngispui-notification__content должен содержимое передаваемое значение', () => {
-    const notificationContentElement = fixture.nativeElement.querySelector('.ngispui-notification__content');
+    const notificationContentElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__content'
+    );
     expect(notificationContentElement.textContent).toContain(testHostComponent.content);
   });
 
   it('должен менять содержимое ngispui-notification__content', () => {
-    const notificationContentElement = fixture.nativeElement.querySelector('.ngispui-notification__content');
+    const notificationContentElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__content'
+    );
     expect(notificationContentElement.textContent).toContain(testHostComponent.content);
 
     testHostComponent.content = 'Новый контент уведомления';
@@ -114,12 +121,16 @@ describe('NgISPUINotificationComponent', () => {
   });
 
   it('должен создать ссылку ngispui-notification__link', () => {
-    const notificationLinkElement = fixture.nativeElement.querySelector('.ngispui-notification__link');
+    const notificationLinkElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__link'
+    );
     expect(notificationLinkElement).toBeTruthy();
   });
 
   it('ngispui-notification__link должен содержимое передаваемое значение', () => {
-    const notificationLinkElement = fixture.nativeElement.querySelector('.ngispui-notification__link');
+    const notificationLinkElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__link'
+    );
     expect(notificationLinkElement.textContent).toContain(testHostComponent.link);
   });
 
@@ -129,7 +140,9 @@ describe('NgISPUINotificationComponent', () => {
   });
 
   it('должен менять содержимое ngispui-notification__link', () => {
-    const notificationLinkElement = fixture.nativeElement.querySelector('.ngispui-notification__link');
+    const notificationLinkElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__link'
+    );
     expect(notificationLinkElement.textContent).toContain(testHostComponent.link);
 
     testHostComponent.link = 'Новый контент уведомления';
@@ -157,7 +170,7 @@ describe('NgISPUINotificationComponent', () => {
       'rest-list',
     ];
 
-    typesNotification.forEach((item) => {
+    typesNotification.forEach(item => {
       testHostComponent.type = item;
       fixture.detectChanges();
 
@@ -165,7 +178,9 @@ describe('NgISPUINotificationComponent', () => {
       const typeNotification = types[0];
       const isList = types[1] === 'list';
 
-      expect(notificationElement.classList.contains(`ngispui-notification_${typeNotification}`)).toBeTruthy();
+      expect(
+        notificationElement.classList.contains(`ngispui-notification_${typeNotification}`)
+      ).toBeTruthy();
       if (isList) {
         expect(notificationElement.classList.contains('ngispui-notification_is-list')).toBeTruthy();
       } else {
@@ -177,14 +192,18 @@ describe('NgISPUINotificationComponent', () => {
   it('должены выводить время публикации в ngispui-notification__time', () => {
     testHostComponent.type = 'normal-list';
     fixture.detectChanges();
-    const notificationTimeElement = fixture.nativeElement.querySelector('.ngispui-notification__time');
+    const notificationTimeElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__time'
+    );
     expect(notificationTimeElement.textContent).toContain('Только что');
   });
 
   it('должены менять время публикации в ngispui-notification__time', () => {
     testHostComponent.type = 'normal-list';
     fixture.detectChanges();
-    const notificationTimeElement = fixture.nativeElement.querySelector('.ngispui-notification__time');
+    const notificationTimeElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__time'
+    );
     expect(notificationTimeElement.textContent).toContain('Только что');
 
     testHostComponent.time = '9 минут назад';
@@ -193,12 +212,16 @@ describe('NgISPUINotificationComponent', () => {
   });
 
   it('должен создать кнопку закрытия уведомления ngispui-notification__close', () => {
-    const notificationButtonCloseElement = fixture.nativeElement.querySelector('.ngispui-notification__close');
+    const notificationButtonCloseElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__close'
+    );
     expect(notificationButtonCloseElement).toBeTruthy();
   });
 
   it('должно генерироваться событие onClose при нажатии по ngispui-notification__close', () => {
-    const notificationButtonCloseElement = fixture.nativeElement.querySelector('.ngispui-notification__close');
+    const notificationButtonCloseElement = fixture.nativeElement.querySelector(
+      '.ngispui-notification__close'
+    );
     expect(testHostComponent.isClicked).toBeFalsy();
     notificationButtonCloseElement.click();
     expect(testHostComponent.isClicked).toBeTruthy();
@@ -214,12 +237,8 @@ describe('NgISPUINotificationComponent', () => {
   it('должен генерировать событие linkClick и не генерировать onClick при нажатии по ссылке', () => {
     const linkElement = fixture.nativeElement.querySelector('.ngispui-notification__link');
     expect(testHostComponent.isClicked).toBeFalsy();
-    testHostComponent.notification.linkClick.subscribe(id =>
-      expect(id).toBe(testHostComponent.id),
-    );
+    testHostComponent.notification.linkClick.subscribe(id => expect(id).toBe(testHostComponent.id));
     linkElement.click();
     expect(testHostComponent.isClicked).toBeFalsy();
   });
 });
-
-

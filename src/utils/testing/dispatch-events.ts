@@ -1,6 +1,4 @@
-import {
-  createKeyboardEvent,
-} from './event-objects';
+import { createKeyboardEvent } from './event-objects';
 
 /**
  * Функция вызывающая события на ноде.
@@ -18,8 +16,12 @@ export function dispatchEvent(node: Node | Window, event: Event): Event {
  * @param keyCode - код клавиши.
  * @param target - позволяет работать с элементом на котором происходит событие во время одной из
  *  фаз (поднятие/всплытие).
-*/
-export function dispatchKeyboardEvent(node: Node, type: string, keyCode: number, target?: Element):
-KeyboardEvent {
+ */
+export function dispatchKeyboardEvent(
+  node: Node,
+  type: string,
+  keyCode: number,
+  target?: Element
+): KeyboardEvent {
   return dispatchEvent(node, createKeyboardEvent(type, keyCode, target)) as KeyboardEvent;
 }

@@ -4,7 +4,7 @@
  * @param target - позволяет работать с элементом на котором происходит событие во время одной из
  *  фаз (поднятие/всплытие).
  * @param key - DOMString, представлающее значение клавиши, на которой возникло событие.
-*/
+ */
 export function createKeyboardEvent(type: string, keyCode: number, target?: Element, key?: string) {
   const event = document.createEvent('KeyboardEvent') as any;
   // Firefox не поддерживает `initKeyboardEvent`, но поддерживает `initKeyEvent`.

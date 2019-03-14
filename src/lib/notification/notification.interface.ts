@@ -1,5 +1,11 @@
 /** типы уведомлений и баннеров  */
-export type TNotifyBanner = 'error-fast' | 'normal-fast' | 'rest-fast' | 'error-list' | 'normal-list' | 'rest-list';
+export type TNotifyBanner =
+  | 'error-fast'
+  | 'normal-fast'
+  | 'rest-fast'
+  | 'error-list'
+  | 'normal-list'
+  | 'rest-list';
 export type TNotify = 'error' | 'normal' | 'rest';
 export type TNotifyEvent = 'close' | 'click' | 'hide' | 'link-click';
 export type TBanner = 'fast' | 'list';

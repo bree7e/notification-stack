@@ -1,5 +1,13 @@
 import { DOCUMENT } from '@angular/common';
-import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Inject, Injector, OnDestroy, Injectable } from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentFactoryResolver,
+  ComponentRef,
+  Inject,
+  Injector,
+  OnDestroy,
+  Injectable,
+} from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -8,7 +16,7 @@ import { INotifyBanner, INotifyEvent } from './notification.interface';
 import { DOMOutletContainer, DOMOutlet } from 'src/lib/dom-outlet';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class NgISPUINotificationService implements OnDestroy {
   /** таймаут скрытия нотификации */
@@ -27,17 +35,15 @@ export class NgISPUINotificationService implements OnDestroy {
   /** объект добавления компонента в DOM */
   private _domOutlet: DOMOutlet;
 
-
   constructor(
     private _domContainer: DOMOutletContainer,
     private _appRef: ApplicationRef,
     private _componentResolver: ComponentFactoryResolver,
     private _injector: Injector,
-    @Inject(DOCUMENT) protected _document: any,
+    @Inject(DOCUMENT) protected _document: any
   ) {
     this._createNotifyListComp();
   }
-
 
   /**
    * Добавить нотификацию в очередь
@@ -50,7 +56,6 @@ export class NgISPUINotificationService implements OnDestroy {
     return notifyListComp.push(banner);
   }
 
-
   /**
    * Получить ссылку на компонент списка нотификаций
    */
@@ -61,16 +66,19 @@ export class NgISPUINotificationService implements OnDestroy {
     return this._notifyListCompRef;
   }
 
-
   /**
    * Добавить компонент списка нотификаций в DOM
    */
   private _createNotifyListComp(): void {
-    const domOutlet = new DOMOutlet(this._createHostElement(), this._componentResolver, this._appRef, this._injector);
+    const domOutlet = new DOMOutlet(
+      this._createHostElement(),
+      this._componentResolver,
+      this._appRef,
+      this._injector
+    );
     const compRef = domOutlet.attachComponent(NgISPUINotificationGroupComponent);
     this._notifyListCompRef = compRef;
   }
-
 
   /**
    * Создать хост элемент для компонента списка нотификаций
@@ -82,12 +90,9 @@ export class NgISPUINotificationService implements OnDestroy {
     return host;
   }
 
-
   ngOnDestroy() {
     if (this._domOutlet) {
       this._domOutlet.dispose();
     }
   }
-
 }
-

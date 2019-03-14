@@ -7,27 +7,11 @@ import { NgISPUINotificationComponent } from './notification.component';
 import { NgISPUINotificationService } from './notification.service';
 import { DOMOUTLETCONTAINER_PROVIDER } from 'src/lib/dom-outlet';
 
-
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-  ],
-  declarations: [
-    NgISPUINotificationComponent,
-    NgISPUINotificationGroupComponent,
-  ],
-  providers: [
-    NgISPUINotificationService,
-    DOMOUTLETCONTAINER_PROVIDER,
-  ],
-  entryComponents: [
-    NgISPUINotificationComponent,
-    NgISPUINotificationGroupComponent,
-  ],
-  exports: [
-    NgISPUINotificationComponent,
-    NgISPUINotificationGroupComponent,
-  ],
+  imports: [CommonModule, BrowserAnimationsModule],
+  declarations: [NgISPUINotificationComponent, NgISPUINotificationGroupComponent],
+  providers: [NgISPUINotificationService, DOMOUTLETCONTAINER_PROVIDER],
+  entryComponents: [NgISPUINotificationComponent, NgISPUINotificationGroupComponent],
+  exports: [NgISPUINotificationComponent, NgISPUINotificationGroupComponent],
 })
 export class NgISPUINotificationModule {}

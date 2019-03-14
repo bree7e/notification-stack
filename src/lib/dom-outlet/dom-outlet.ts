@@ -1,9 +1,10 @@
 import {
-    ApplicationRef,
-    ComponentFactoryResolver,
-    ComponentRef,
-    EmbeddedViewRef,
-    Injector } from '@angular/core';
+  ApplicationRef,
+  ComponentFactoryResolver,
+  ComponentRef,
+  EmbeddedViewRef,
+  Injector,
+} from '@angular/core';
 
 /**
  * Класс для вставки компонента в DOM и связка его с ангуляром
@@ -15,13 +16,11 @@ export class DOMOutlet {
   private _disposed = false;
 
   constructor(
-      public outletElement: Element,
-      private _componentResolver: ComponentFactoryResolver,
-      private _appRef: ApplicationRef,
-      private _defaultInjector: Injector,
-    ) {
-  }
-
+    public outletElement: Element,
+    private _componentResolver: ComponentFactoryResolver,
+    private _appRef: ApplicationRef,
+    private _defaultInjector: Injector
+  ) {}
 
   /**
    * Добавить компонент в DOM
@@ -29,12 +28,18 @@ export class DOMOutlet {
    * @param injector - инжектор для создания компонента
    * @param componentResolver - резолер для создания компонента
    */
-  attachComponent(component: any, injector?: Injector, componentResolver?: ComponentFactoryResolver): ComponentRef<any> {
+  attachComponent(
+    component: any,
+    injector?: Injector,
+    componentResolver?: ComponentFactoryResolver
+  ): ComponentRef<any> {
     let componentRef;
     if (componentResolver) {
-       componentRef = componentResolver.resolveComponentFactory(component).create(injector);
+      componentRef = componentResolver.resolveComponentFactory(component).create(injector);
     } else {
-      componentRef = this._componentResolver.resolveComponentFactory(component).create(this._defaultInjector);
+      componentRef = this._componentResolver
+        .resolveComponentFactory(component)
+        .create(this._defaultInjector);
     }
 
     this._appRef.attachView(componentRef.hostView);
@@ -49,7 +54,6 @@ export class DOMOutlet {
     return componentRef;
   }
 
-
   /**
    * Задать ф-цию вызываемую при отчистке DOM от компонента
    * @param fn - ф-ция
@@ -57,7 +61,6 @@ export class DOMOutlet {
   setDisposeFn(fn: () => void) {
     this._disposeFn = fn;
   }
-
 
   /**
    * Очистить DOM от компонента
@@ -72,7 +75,6 @@ export class DOMOutlet {
     }
   }
 
-
   /**
    *  Вызов ф-ции коллбэка при отчистке DOM от компонента
    */
@@ -82,7 +84,6 @@ export class DOMOutlet {
       this._disposeFn = null;
     }
   }
-
 
   /**
    * Получить html компонента

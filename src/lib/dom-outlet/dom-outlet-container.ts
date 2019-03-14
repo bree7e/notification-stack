@@ -16,7 +16,9 @@ export class DOMOutletContainer implements OnDestroy {
    * Получить html элемент контейнера
    */
   getContainerElement(): HTMLElement {
-    if (!this._containerElement) { this._createContainer(); }
+    if (!this._containerElement) {
+      this._createContainer();
+    }
     return this._containerElement;
   }
 
@@ -33,8 +35,10 @@ export class DOMOutletContainer implements OnDestroy {
 }
 
 /** @docs-private @deprecated @deletion-target 7.0.0 */
-export function DOMOUTLETCONTAINER_PROVIDER_FACTORY(parentContainer: DOMOutletContainer,
-  _document: any) {
+export function DOMOUTLETCONTAINER_PROVIDER_FACTORY(
+  parentContainer: DOMOutletContainer,
+  _document: any
+) {
   return parentContainer || new DOMOutletContainer(_document);
 }
 
@@ -42,10 +46,6 @@ export function DOMOUTLETCONTAINER_PROVIDER_FACTORY(parentContainer: DOMOutletCo
 export const DOMOUTLETCONTAINER_PROVIDER = {
   // Если DOMOutletContainer уже существует, то используем его, иначе создаем новый
   provide: DOMOutletContainer,
-  deps: [
-    [new Optional(), new SkipSelf(), DOMOutletContainer],
-    DOCUMENT as InjectionToken<any>,
-  ],
+  deps: [[new Optional(), new SkipSelf(), DOMOutletContainer], DOCUMENT as InjectionToken<any>],
   useFactory: DOMOUTLETCONTAINER_PROVIDER_FACTORY,
 };
-
