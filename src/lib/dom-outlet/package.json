@@ -5,15 +5,14 @@
   "main": "index.js",
   "types": "index.d.ts",
   "license": "MIT",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git@gitlab-dev.ispsystem.net:frontend/common/ng-isp-ui.git"
   },
   "private": true,
-  "dependencies": {
+  "peerDependencies": {
     "@angular/common": "^6.0.9",
-   "@angular/core": "^6.0.9"
+    "@angular/core": "^6.0.9"
   }
 }

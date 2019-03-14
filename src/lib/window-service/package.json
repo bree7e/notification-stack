@@ -12,7 +12,7 @@
     "url": "git@gitlab-dev.ispsystem.net:frontend/common/ng-isp-ui.git"
   },
   "private": true,
-  "dependencies": {
+  "peerDependencies": {
     "@angular/core": "^6.0.9",
     "@angular/common": "^6.0.9"
   }
