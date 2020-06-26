@@ -7,7 +7,7 @@ import { NgISPUINotificationService, TNotifyEvent } from 'src/lib/notification';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'animo';
+  title = 'New Animation Demo';
   constructor(private _notificationService: NgISPUINotificationService) {}
 
   isShow = false;

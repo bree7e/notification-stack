@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, InjectionToken, OnDestroy, Optional, SkipSelf } from '@angular/core';
+import { Inject, InjectionToken, Injectable, OnDestroy, Optional, SkipSelf } from '@angular/core';
 
+@Injectable()
 export class DOMOutletContainer implements OnDestroy {
   private _containerElement: HTMLElement;
 

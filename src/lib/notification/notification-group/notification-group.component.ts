@@ -32,7 +32,7 @@ import { INotifyBanner, INotifyEvent } from '../notification.interface';
             })
           ),
           animate(
-            '500ms cubic-bezier(.8,-0.6,0.2,1.5)', // отскок
+            '250ms 10ms cubic-bezier(.8,-0.6,0.2,1.5)', // отскок
             style({ transform: 'translateX(0)', opacity: 1 })
           ),
         ]),

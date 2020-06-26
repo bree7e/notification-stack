@@ -83,7 +83,10 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "baseHref": "https://bree7e.github.io/notification-stack/",
+            "name": "New Animation Demo"
+          }
         }
       }
     },
