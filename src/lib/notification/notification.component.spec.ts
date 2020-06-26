@@ -31,7 +31,8 @@ describe('NgISPUINotificationComponent', () => {
     `,
   })
   class TestHostComponent {
-    @ViewChild(NgISPUINotificationComponent) notification: NgISPUINotificationComponent;
+    @ViewChild(NgISPUINotificationComponent, { static: false })
+    notification: NgISPUINotificationComponent;
     type: string = 'error-fast';
     id: number = 1;
     title: string = 'Название уведомления';
